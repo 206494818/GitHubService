@@ -63,11 +63,12 @@ public class Getservice {
 		String responseMessage = BLANK;
 		String updatedContent = BLANK;
 		String sb = BLANK;
+		FIELD_UPDATE_VALUE = Getservice.quarter();
+
+		// Establishing connection with the GitRepository.
 		GitHubClient githubClient = new GitHubClient();
 		githubClient.setOAuth2Token(TOKEN);
-		FIELD_UPDATE_VALUE = Getservice.quarter();
 		RepositoryService repoService = new RepositoryService(githubClient);
-
 		Repository repo;
 		try {
 			repo = repoService.getRepository(USER, REPONAME);
@@ -76,8 +77,8 @@ public class Getservice {
 					"Error in connecting to Reporitory, please check the CONNECTION or TOKEN or try with proper USER NAME and REPOSITORY NAME");
 		}
 
+		// Fetching the contents from the File under connected Repository.
 		ContentsService contentService = new ContentsService(githubClient);
-
 		List<RepositoryContents> contents;
 		try {
 			contents = contentService.getContents(repo, FILENAME);
@@ -91,11 +92,7 @@ public class Getservice {
 					"Entered file name cannot be found in the repository, please give proper filename");
 		}
 
-		/*
-		 * String prettyJson=toPrettyFormat(sb); updatedContent = prettyJson;
-		 * responseMessage = gitCommitService.doInBackground(githubClient, repo, BRANCH,
-		 * REPONAME, FILENAME, updatedContent, FILENAME + " " + COMMIT_MESSAGE, USER);
-		 */
+		// Searching the FIELD & Updating the Value of a FIELD.
 		try {
 			JsonArray jsonArray = (JsonArray) new JsonParser().parse(sb);
 			Map<String, Object> fieldsMap = null;
@@ -106,7 +103,6 @@ public class Getservice {
 				for (int i = 0; i < jsonArray.size(); i++) {
 					fieldsMap = new HashMap<>();
 					explrObject = jsonArray.get(i).getAsJsonObject();
-
 					String key = FIELD;
 					String new_value = FIELD_UPDATE_VALUE;
 					explrObject.addProperty(key, new_value);
@@ -125,9 +121,11 @@ public class Getservice {
 
 		}
 
+		// Calling Api after the update has done
 		RestTemplate restTemplate = new RestTemplate();
 		String result = restTemplate.postForObject(resturl, updatedContent, String.class);
 
+		// Triggering Mail utility after Api call.
 		gitCommitService.sendMail();
 
 		if (!responseMessage.equals("") || responseMessage != null) {
@@ -137,6 +135,7 @@ public class Getservice {
 
 	}
 
+	// Checking for the FIELD present in the file or not.
 	public static Boolean validateField(JsonObject jsonObj, String field) {
 
 		if (jsonObj.has(field)) {
@@ -146,12 +145,14 @@ public class Getservice {
 
 	}
 
+	// Beautifying the Json content.
 	public static String toPrettyFormat(String jsonString) {
 		String gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create()
 				.toJson(new JsonParser().parse(jsonString));
 		return gson;
 	}
 
+	// Calculating the value to be Updated.
 	public static String quarter() {
 		String next = BLANK;
 
