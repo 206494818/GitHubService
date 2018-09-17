@@ -1,0 +1,16 @@
+applications:
+  - name: github-service
+    path: target/github-service-0.0.1-SNAPSHOT.jar
+    instances: 1
+    memory: 1G
+    buildpack: https://github.com/cloudfoundry/java-buildpack#v4.6 
+
+services:
+- demoConfigServer
+
+env:
+   CF_STAGING_TIMEOUT: 100
+   CF_STARTUP_TIMEOUT: 100
+   SPRING_PROFILES_ACTIVE: dev      
+   http_proxy: http://proxy.inbcu.com:80
+   https_proxy: http://proxy.inbcu.com:80    
