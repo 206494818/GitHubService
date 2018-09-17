@@ -36,6 +36,7 @@ public class GitCommitServiceImpl implements GitCommitService {
 	private EmailBuilder emailBuilder;
 
 	@Override
+	// Committing back the updatedcontents to the same file in the Repository.
 	public String doInBackground(GitHubClient client, Repository repository, String branch, String repoName,
 			String path, String updatedContent, String commitMessage, String USER) {
 
