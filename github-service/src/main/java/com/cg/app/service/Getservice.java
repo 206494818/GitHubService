@@ -57,8 +57,7 @@ public class Getservice {
 	@Autowired
 	GitCommitService gitCommitService;
 
-	public String get(String FILENAME)
-
+	public String fetchAndUpdateInGithub(String FILENAME)
 	{
 		String responseMessage = BLANK;
 		String updatedContent = BLANK;
@@ -126,7 +125,7 @@ public class Getservice {
 		String result = restTemplate.postForObject(resturl, updatedContent, String.class);
 
 		// Triggering Mail utility after Api call.
-		gitCommitService.sendMail();
+		//gitCommitService.sendMail();
 
 		if (!responseMessage.equals("") || responseMessage != null) {
 			return responseMessage;

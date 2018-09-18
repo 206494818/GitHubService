@@ -42,9 +42,9 @@ public class GitController {
 
 		APPLICATION_NAME = APPLICATION_NAME.toLowerCase();
 		if (APPLICATION_NAME.equals(CP_NAME)) {
-			return getservice.get(CP_FILENAME);
+			return getservice.fetchAndUpdateInGithub(CP_FILENAME);
 		} else if (APPLICATION_NAME.equals(DMT_NAME)) {
-			return getservice.get(DMT_FILENAME);
+			return getservice.fetchAndUpdateInGithub(DMT_FILENAME);
 		} else {
 			throw new RuntimeException("Incorrect APPLICATION NAME or the URL");
 		}

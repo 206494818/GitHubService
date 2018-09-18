@@ -8,6 +8,5 @@ public class GitConnectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GitConnectApplication.class, args);
-
 	}
 }
