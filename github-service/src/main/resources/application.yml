@@ -9,7 +9,7 @@ spring:
 
 git:
   userName: kodadaiah
-  token: ff4cdce66568a7d6ee38869d6029b6fb04653e43
+  token: Git@2018
   repository: QUARTER
   branch: master
   commitMsg: Updated successfully
@@ -54,6 +54,9 @@ management:
 spring:
   profiles: "dev"
   
+spring:
+  profiles: "default"
+
   datasource:
     driverClassName: 'oracle.jdbc.driver.OracleDriver'
     username: onair
@@ -62,7 +65,7 @@ spring:
 
 git:
   userName: kodadaiah
-  token: ff4cdce66568a7d6ee38869d6029b6fb04653e43
+  token: Git@2018
   repository: QUARTER
   branch: master
   commitMsg: Updated successfully
@@ -101,12 +104,16 @@ security:
 management:
   security:
     enabled: false
+
 
 ---
 spring:
   profiles: "prod"
 
 
+spring:
+  profiles: "default"
+
   datasource:
     driverClassName: 'oracle.jdbc.driver.OracleDriver'
     username: onair
@@ -115,7 +122,7 @@ spring:
 
 git:
   userName: kodadaiah
-  token: ff4cdce66568a7d6ee38869d6029b6fb04653e43
+  token: Git@2018
   repository: QUARTER
   branch: master
   commitMsg: Updated successfully
@@ -154,4 +161,5 @@ security:
 management:
   security:
     enabled: false
+
 
