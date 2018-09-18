@@ -15,7 +15,7 @@ git:
   commitMsg: Updated successfully
   field: "liabDateStr"
   resturl: http://localhost:8080/client
-
+  
 cp:
   Name: cp
   fileName: CP/test.json
