@@ -53,9 +53,6 @@ management:
 
 spring:
   profiles: "dev"
-  
-spring:
-  profiles: "default"
 
   datasource:
     driverClassName: 'oracle.jdbc.driver.OracleDriver'
@@ -110,9 +107,6 @@ management:
 spring:
   profiles: "prod"
 
-
-spring:
-  profiles: "default"
 
   datasource:
     driverClassName: 'oracle.jdbc.driver.OracleDriver'
