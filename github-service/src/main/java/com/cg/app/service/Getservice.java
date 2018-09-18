@@ -20,6 +20,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import com.cg.app.builder.RestTemplateConfig;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -56,6 +58,9 @@ public class Getservice {
 
 	@Autowired
 	GitCommitService gitCommitService;
+
+	@Autowired
+	RestTemplate restTemplate;
 
 	public String fetchAndUpdateInGithub(String FILENAME)
 	{
@@ -108,7 +113,7 @@ public class Getservice {
 					list.add(explrObject);
 				}
 			} else
-				throw new RuntimeException();
+				throw new RuntimeException("Failed while updating");
 			String compactJson = list.toString();
 			String prettyJson = toPrettyFormat(compactJson);
 			updatedContent = prettyJson;
@@ -121,11 +126,18 @@ public class Getservice {
 		}
 
 		// Calling Api after the update has done
-		RestTemplate restTemplate = new RestTemplate();
-		String result = restTemplate.postForObject(resturl, updatedContent, String.class);
+		try {
+			String result = restTemplate.postForObject(resturl, updatedContent, String.class);
+		} catch (Exception e) {
+			throw new RuntimeException("please check the Resturl specified");
+		}
 
 		// Triggering Mail utility after Api call.
-		//gitCommitService.sendMail();
+		try {
+			gitCommitService.sendMail();
+		} catch (Exception e) {
+			throw new RuntimeException("Error while Triggering the mail Api");
+		}
 
 		if (!responseMessage.equals("") || responseMessage != null) {
 			return responseMessage;

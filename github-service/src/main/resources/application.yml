@@ -9,7 +9,7 @@ spring:
 
 git:
   userName: kodadaiah
-  token: 9d2cbfbfa34ada92a21d69ff662c52759cf4de01
+  token: 6c37e63c81c1edb15c6830a5428251e35636574b
   repository: QUARTER
   branch: master
   commitMsg: Updated successfully
@@ -51,100 +51,100 @@ management:
 
 ---
 
-#spring:
-#  profiles: "dev"
-#  datasource:
-#    driverClassName: 'oracle.jdbc.driver.OracleDriver'
-#    username: onair
-#    password: onair
-#    url: jdbc:oracle:thin:@//aoadbss00002c0.tfayd.com:15192/D124
-#git:
-#  userName: kodadaiah
-#  token: 9d2cbfbfa34ada92a21d69ff662c52759cf4de01
-#  repository: QUARTER
-#  branch: master
-#  commitMsg: Updated successfully
-#  field: "liabDateStr"
-#  resturl: http://localhost:8080/client
-#
-#cp:
-#  cpfileName: CP/test.json
-#  
-#dmt:
-#  dmpfileName: DMT/test.json 
-#   
-#mail:
-#  utility:
-#    url: https://mailing-utility.devaoa.inbcu.com/mail
-# 
-#notification:
-#  email:
-#    recipient: 
-#    sender: s.cherlin@inbcu.com
-#    message: Client Performance liability has been updteed to next quarter!
-#    apLink: https://www.capgemini.com/in-en/
-#    subject:  CP liabliaty updated
-#
-#jpa:
-#  database-platform: 'org.hibernate.dialect.Oracle10gDialect'
-#  hibernate:
-#   ddl-auto: none
-#  show-sql: true
-#
-#
-#security:
-#  basic:
-#    enabled: false
-#management:
-#  security:
-#    enabled: false
-#
-#---
-#spring:
-#  profiles: "prod"
-#  datasource:
-#    driverClassName: 'oracle.jdbc.driver.OracleDriver'
-#    username: onair
-#    password: onair
-#    url: jdbc:oracle:thin:@//aoadbsp00001c0.tfayd.com:15191/p123_rpt
-#git:
-#  userName: kodadaiah
-#  token: 9d2cbfbfa34ada92a21d69ff662c52759cf4de01
-#  repository: QUARTER
-#  branch: master
-#  commitMsg: Updated successfully
-#  field: "liabDateStr"
-#  resturl: http://localhost:8080/client
-#
-#cp:
-#  cpfileName: CP/test.json
-#  
-#dmt:
-#  dmpfileName: DMT/test.json 
-#   
-#mail:
-#  utility:
-#    url: https://mailing-utility.devaoa.inbcu.com/mail
-# 
-#notification:
-#  email:
-#    recipient: s.cherlin@inbcu.com
-#    sender: kodadaiah.d-p@capgemini.com
-#    message: Client Performance liability has been updteed to next quarter!
-#    apLink: https://www.capgemini.com/in-en/
-#    subject:  CP liabliaty updated
-#
-#jpa:
-#  database-platform: 'org.hibernate.dialect.Oracle10gDialect'
-#  hibernate:
-#   ddl-auto: none
-#  show-sql: true
-#
-#
-#security:
-#  basic:
-#    enabled: false
-#management:
-#  security:
-#    enabled: false
-#
+spring:
+  profiles: "dev"
+  datasource:
+    driverClassName: 'oracle.jdbc.driver.OracleDriver'
+    username: onair
+    password: onair
+    url: jdbc:oracle:thin:@//aoadbss00002c0.tfayd.com:15192/D124
+git:
+  userName: kodadaiah
+  token: 6c37e63c81c1edb15c6830a5428251e35636574b
+  repository: QUARTER
+  branch: master
+  commitMsg: Updated successfully
+  field: "liabDateStr"
+  resturl: http://localhost:8080/client
+
+cp:
+  cpfileName: CP/test.json
+  
+dmt:
+  dmpfileName: DMT/test.json 
+   
+mail:
+  utility:
+    url: https://mailing-utility.devaoa.inbcu.com/mail
+ 
+notification:
+  email:
+    recipient: 
+    sender: s.cherlin@inbcu.com
+    message: Client Performance liability has been updteed to next quarter!
+    apLink: https://www.capgemini.com/in-en/
+    subject:  CP liabliaty updated
+
+jpa:
+  database-platform: 'org.hibernate.dialect.Oracle10gDialect'
+  hibernate:
+   ddl-auto: none
+  show-sql: true
+
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+
+---
+spring:
+  profiles: "prod"
+  datasource:
+    driverClassName: 'oracle.jdbc.driver.OracleDriver'
+    username: onair
+    password: onair
+    url: jdbc:oracle:thin:@//aoadbsp00001c0.tfayd.com:15191/p123_rpt
+git:
+  userName: kodadaiah
+  token: 6c37e63c81c1edb15c6830a5428251e35636574b
+  repository: QUARTER
+  branch: master
+  commitMsg: Updated successfully
+  field: "liabDateStr"
+  resturl: http://localhost:8080/client
+
+cp:
+  cpfileName: CP/test.json
+  
+dmt:
+  dmpfileName: DMT/test.json 
+   
+mail:
+  utility:
+    url: https://mailing-utility.devaoa.inbcu.com/mail
+ 
+notification:
+  email:
+    recipient: s.cherlin@inbcu.com
+    sender: kodadaiah.d-p@capgemini.com
+    message: Client Performance liability has been updteed to next quarter!
+    apLink: https://www.capgemini.com/in-en/
+    subject:  CP liabliaty updated
+
+jpa:
+  database-platform: 'org.hibernate.dialect.Oracle10gDialect'
+  hibernate:
+   ddl-auto: none
+  show-sql: true
+
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+
