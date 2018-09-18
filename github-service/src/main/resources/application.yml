@@ -1,5 +1,5 @@
 spring:
-  profiles: default
+  profiles: "default"
 
   datasource:
     driverClassName: 'oracle.jdbc.driver.OracleDriver'
@@ -117,10 +117,12 @@ git:
   resturl: http://localhost:8080/client
 
 cp:
-  cpfileName: CP/test.json
-  
+  Name: cp
+  fileName: CP/test.json
+
 dmt:
-  dmpfileName: DMT/test.json 
+  Name: dmt
+  fileName: DMT/test.json
    
 mail:
   utility:
