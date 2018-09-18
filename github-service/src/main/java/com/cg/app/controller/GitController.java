@@ -51,10 +51,4 @@ public class GitController {
 
 	}
 
-	@ApiIgnore
-	@PostMapping("/client")
-	public String clientTest(@RequestBody String updatedContent) throws Exception {
-		return updatedContent;
-	}
-
 }
